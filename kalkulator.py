@@ -1,46 +1,44 @@
-def pobierz_liczbe():
-  while True:
-    try:
-      liczba = float(input())
-      break
-    except ValueError:
-      print("Podany tekst nie jest liczbą")
-  return liczba
+print("Kalkulator")
+print("1. Dodawanie")
+print("2. Odejmowanie")
+print("3. Mnożenie")
+print("4. Dzielenie")
+print("5. Procent")
+
 
 def main():
-  koniec = False
-  while not koniec:
-    print("Podaj w oddzielnych wierszach liczbę, operację matematyczną: +,-,*,/,%, a następnie kolejną liczbę:")
-    liczba1 = pobierz_liczbe()
-    operacja = input()
-    liczba2 = pobierz_liczbe()
 
-    try:
-      if operacja == "+":
-        wynik = liczba1 + liczba2
-      elif operacja == "-":
-        wynik = liczba1 - liczba2
-      elif operacja == "*":
-        wynik = liczba1 * liczba2
-      elif operacja == "/":
-          wynik = liczba1 / liczba2
-      elif operacja == "%":
-        wynik = liczba1 % liczba2
-      else:
-        print("Niepoprawna operacja")
-        break
-      print("Twój wynik to: " + str(wynik))
-    except ZeroDivisionError:
-      print("Nastąpiło dzielenie przez zero")
+    koniec = False
+    while not koniec:
+        a = int(input("Podaj pierwszą liczbę: "))
+        b = int(input("Podaj drugą liczbę: "))
+        działanie = input("Wybierz działanie: ")
+        wynik = 0
 
-    print("Chcesz wykonać kolejne działanie? Wpisz literę t lub n")
+        if działanie == "1":
+            wynik = a + b
+        elif działanie == "2":
+            wynik = a - b
+        elif działanie == "3":
+            wynik = a * b
+        elif działanie == "4":
+            wynik = a / b
+        elif działanie == "5":
+            wynik = a % b
+        else:
+            print("Niepoprawna operacja")
+            break
 
-    kolejne = input()
-    if kolejne == "n":
-      koniec = True
-    elif kolejne != "t":
-      print("Niepoprawny wybór")
-      break
+        print("Twój wynik to: " + str(wynik))
+        print("Chcesz wykonać kolejne działanie? Wpisz literę T lub N")
+
+        kolejne = input()
+        if kolejne == "N":
+            koniec = True
+        elif kolejne != "T":
+            print("Niepoprawny wybór")
+            break
+
 
 if __name__ == "__main__":
-  main()
+    main()
